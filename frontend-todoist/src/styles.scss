@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&display=swap');
+
+$noto-sans: 'Noto Sans Kawi', sans-serif;
+$color-btn : #69665c;
+$color-btn-hoover : #3c3c3c;
+
+$font-color-btn : #ffff;
+
+$font-task : #ffeea2;
+$font-color : #8fcbff;
+$font-color : #ffcece;
+
+
+
+
+
+body {
+  font-family: $noto-sans;
+  background-color: #ffffff;
+}
+
+
+p{
+  padding: 0 25px;
+}
+.btn{
+  border-radius: 10px;
+  padding: 15px 40px;
+  color: $font-color-btn;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  display: block;
+}
+.btn-actions:hover{
+  background-color: $color-btn-hoover;
+  cursor: pointer;
+}
+
+.btn-actions{
+  background-color: $color-btn;
+}
+.image{
+  padding: 20px 0;
+  display: block;
+  width: 40%;
+}
+
+.container{
+  display: block;
+}
+.center{
+  text-align: center;
+}
+.align-center{
+  margin: 0 auto;
+}

@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&display=swap");
+body {
+  font-family: "Noto Sans Kawi", sans-serif;
+  background-color: white;
+}
+
+h1 {
+  padding: 15px;
+}
+
+p {
+  padding: 0 15px;
+}/*# sourceMappingURL=styles.css.map */

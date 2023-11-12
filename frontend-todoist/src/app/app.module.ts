@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TaskIndexComponent } from './components/task-index/task-index.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    TaskIndexComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
