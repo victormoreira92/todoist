@@ -1,11 +1,13 @@
-section{
+section {
   display: flex;
   justify-content: space-between;
 }
-.tasks-square{
+
+.tasks-square {
   width: 75%;
 }
-app-sidebar{
+
+app-sidebar {
   width: 30%;
   height: 100%;
-}
+}/*# sourceMappingURL=task-index.component.css.map */
