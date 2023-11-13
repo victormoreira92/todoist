@@ -1,1 +1,7 @@
-/*# sourceMappingURL=footer.component.css.map */
+footer {
+  text-align: center;
+  background-color: rgb(195, 195, 195);
+  padding: 5px 0;
+  color: white;
+  font-weight: bold;
+}/*# sourceMappingURL=footer.component.css.map */
