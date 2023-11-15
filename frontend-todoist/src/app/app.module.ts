@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TaskIndexComponent } from './components/task-index/task-index.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     FooterComponent,
     HeaderComponent,
     TaskIndexComponent,
-    SidebarComponent
+    SidebarComponent,
+    TaskComponent,
+
   ],
   imports: [
     BrowserModule,
