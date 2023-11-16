@@ -23,13 +23,21 @@ img{
   width: 35%;
   height: 35%;
 }
-.checkmark{
-  cursor: pointer;
-  height: 25px;
-  width: 25px;
-  margin: 0 5px;
-}
+
 .list-title:hover{
   font-weight: bolder;
   cursor: pointer;
+}
+.sidenav{
+  background-color: #fafafa;
+  padding: 15px;
+  width: auto;
+  height: 100%;
+  display: fixed;
+
+}
+
+.sidenav h5{
+  display: inline;
+  padding-right: 5em;
 }
