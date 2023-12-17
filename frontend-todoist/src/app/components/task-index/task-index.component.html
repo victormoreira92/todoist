@@ -1,12 +1,10 @@
-<app-header></app-header>
-<section>
-  <app-sidebar></app-sidebar>
-  <div class="tasks-square">
-    <app-task></app-task>
-    <app-task></app-task>
-    <app-task></app-task>
-    <app-task></app-task>
-
-  </div>  
-</section>
-<app-footer></app-footer>
+<mat-sidenav-container>
+  <mat-sidenav  #sidenav mode="side" fixedInViewport opened class="sidenav"><app-sidebar></app-sidebar></mat-sidenav>
+  <mat-sidenav-container>
+    <div class="right"><button (click)="openDialog()" mat-button><mat-icon class="btn-icon red">add</mat-icon></button></div>
+    <div class="tasks-square">
+      <app-task></app-task>  
+    </div>  
+  </mat-sidenav-container>
+  
+</mat-sidenav-container>

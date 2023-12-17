@@ -1,0 +1,26 @@
+.container{
+  padding: 20px;
+}
+
+.dialog-actions{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.button-dialog{
+  padding: 0 40px;
+}
+
+.button-dialog-add{
+  color: white;
+  background-color: black;
+}
+
+.dialog-label{
+  color:black;
+  font-weight: bold;
+}
+mat-form-field{
+  padding: 10px 0;
+}

@@ -1,4 +1,27 @@
+
 <section class="container-task">
+  <mat-card class="flex sb card" *ngFor="let task of tasks" id="{{task.id}}" >
+    <mat-card-header class="flex sb">
+      <mat-card-title>{{task.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{task.description}}
+    </mat-card-content>
+    <mat-card-actions class="flex sb">
+      <div>
+        <button mat-button>Edit</button>
+        <button mat-button>Delete</button>
+      </div>
+      <mat-checkbox>Done</mat-checkbox>
+    </mat-card-actions>
+  </mat-card>
+</section>
+  
+<!--   
+    <mat-nav-list  class="options" *ngIf="visible">
+        <mat-list-item>Edit...</mat-list-item>
+        <mat-list-item>Delete</mat-list-item>
+      </mat-nav-list>
   <div class="task">
     <div class="my-2 justify-content title">
       <h3 class="p-0 m-0">Title</h3>
@@ -110,6 +133,4 @@
       <label><input type="checkbox" class="checkmark" id="done">Done</label>
     </div>
   </div>
-
-
-</section>
+ -->
