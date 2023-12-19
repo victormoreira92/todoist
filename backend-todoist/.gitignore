@@ -8,7 +8,8 @@
 /.bundle
 /.idea
 .idea
-
+backend-todoist/.idea/
+backend-todoist/.idea
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
