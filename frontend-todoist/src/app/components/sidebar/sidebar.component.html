@@ -1,5 +1,37 @@
-<aside class="sidenav">
-  <ul>
+<div class="flex">
+  <img matListItemAvatar class="rounded" src="../../../assets/images/image-100x100.jpg" alt="...">
+  <p>{{user.name}}</p>
+</div>
+<mat-nav-list>
+  <mat-list-item (click)="openDialog()">
+    <div class="flex">
+      <mat-icon class="pl-1 red">add_circle</mat-icon>
+      <span>Create a task</span>
+    </div>
+  </mat-list-item>
+  <mat-list-item>
+    <div class="flex">
+      <mat-icon class="pl-1">wb_sunny</mat-icon>
+      <span>Today</span>
+    </div>
+  </mat-list-item>
+  <mat-list-item>
+    <div class="flex">
+      <mat-icon class="pl-1">calendar_today</mat-icon>
+      <span>Upcomming</span>
+    </div>
+  </mat-list-item>  
+ </mat-nav-list>
+
+ <mat-nav-list>
+ <h3 mat-subheader>My Projects</h3>
+  <mat-list-item *ngFor="let project of projects">
+    <mat-icon mat-list-icon>tag</mat-icon>
+    <h4 mat-line>{{project.name}}</h4>
+  </mat-list-item>
+</mat-nav-list>
+  
+  <!-- <ul>
     <li class="list-title"><span class="list-icon"></span>Family</li>
     <li class="list-title"><span class="list-icon"></span>House</li>
     <li class="list-title"><span class="list-icon"></span>Enterogermina</li>
@@ -12,5 +44,4 @@
       </form>
     </li>
   </ul>
-  <img src="../../../assets/images/banner.png"/>
-</aside>
+  <img src="../../../assets/images/banner.png" alt="image app" class="image"> -->

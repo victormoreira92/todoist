@@ -1,0 +1,136 @@
+
+<section class="container-task">
+  <mat-card class="flex sb card" *ngFor="let task of tasks" id="{{task.id}}" >
+    <mat-card-header class="flex sb">
+      <mat-card-title>{{task.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{task.description}}
+    </mat-card-content>
+    <mat-card-actions class="flex sb">
+      <div>
+        <button mat-button>Edit</button>
+        <button mat-button>Delete</button>
+      </div>
+      <mat-checkbox>Done</mat-checkbox>
+    </mat-card-actions>
+  </mat-card>
+</section>
+  
+<!--   
+    <mat-nav-list  class="options" *ngIf="visible">
+        <mat-list-item>Edit...</mat-list-item>
+        <mat-list-item>Delete</mat-list-item>
+      </mat-nav-list>
+  <div class="task">
+    <div class="my-2 justify-content title">
+      <h3 class="p-0 m-0">Title</h3>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Edit</a>
+          <a href="#">Delete</a>
+        </div>
+      </div> 
+    </div>
+    <p class="p-0 m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint officia consequatur modi velit obcaecati veritatis voluptas soluta magni odio molestias omnis dolore, consectetur eum quod illum ipsum. Ipsam, quaerat illum.</p>
+    <div class="justify-content pt-1">
+      <div class="justify-content flex-wrap w-25">
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+      </div>
+      <label><input type="checkbox" class="checkmark" id="done">Done</label>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="my-2 justify-content title">
+      <h3 class="p-0 m-0">Title</h3>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Edit</a>
+          <a href="#">Delete</a>
+        </div>
+      </div> 
+    </div>
+    <p class="p-0 m-0">Lorem ipsum dolor sit amet consecteturum quod illum ipsum. Ipsam, quaerat illum.</p>
+    <div class="justify-content pt-1">
+      <div class="justify-content flex-wrap w-25">
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+      </div>
+      <label><input type="checkbox" class="checkmark" id="done">Done</label>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="my-2 justify-content title">
+      <h3 class="p-0 m-0">Title</h3>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Edit</a>
+          <a href="#">Delete</a>
+        </div>
+      </div> 
+    </div>
+    <p class="p-0 m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quaerat illum.</p>
+    <div class="justify-content pt-1">
+      <div class="justify-content flex-wrap w-25">
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+      </div>
+      <label><input type="checkbox" class="checkmark" id="done">Done</label>
+    </div>
+  </div>
+
+   <div class="task">
+    <div class="my-2 justify-content title">
+      <h3 class="p-0 m-0">Title</h3>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">Edit</a>
+          <a href="#">Delete</a>
+        </div>
+      </div> 
+    </div>
+    <p class="p-0 m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit beatae provident nihil consequatur dolorum. Labore sunt libero, reprehenderit a animi voluptates at tenetur dolorum temporibus iure quo dolorem excepturi minima?</p>
+    <div class="justify-content pt-1">
+      <div class="justify-content flex-wrap w-25">
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+        <span class="list-icon"></span>
+      </div>
+      <label><input type="checkbox" class="checkmark" id="done">Done</label>
+    </div>
+  </div>
+ -->

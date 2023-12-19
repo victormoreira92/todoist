@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Kawi&display=swap');
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 
-$noto-sans: 'Noto Sans Kawi', sans-serif;
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Noto Sans Kawi', sans-serif; background-color: #ffffff;}
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: mat.define-palette(mat.$red-palette, 100),
+   accent: mat.define-palette(mat.$gray-palette, 900),
+ )));
+@include mat.all-component-themes($my-theme);
 $color-btn : #69665c;
 $color-btn-hoover : #3c3c3c;
 
@@ -10,16 +20,6 @@ $font-color-btn : #ffff;
 $font-task : #ffeea2;
 $font-color : #8fcbff;
 $font-color : #ffcece;
-
-
-
-
-
-body {
-  font-family: $noto-sans;
-  background-color: #ffffff;
-}
-
 
 p{
   padding: 0 25px;
@@ -55,4 +55,76 @@ p{
 }
 .align-center{
   margin: 0 auto;
+}
+.list-icon {
+  background-color: green;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.justify-content{
+  display: flex;
+  justify-content: space-between;
+}
+.flex{
+  display: flex;
+  //align-items: center;
+}
+.p-0{
+  padding: 0;
+}
+.m-0{
+  margin: 0;
+}
+.pl-1{
+  padding-right: 2px;
+}
+.my-2{
+  padding: 2em 0;
+}
+.checkmark{
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  margin: 0 5px;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
+.w-25{
+  width: 75%;
+}
+.pt-2{
+  padding-top: 2em;
+}
+.pt-1{
+  padding-top: 1em;
+}
+.cg-2{
+  column-gap: 0.5rem;
+}
+.align-center{
+  align-items: center;
+}
+.rg-1{
+  row-gap: 1em;
+}
+.sb{
+  justify-content: space-between;
+}
+.w-100{
+  width: 100%;
+}
+
+
+.mat-drawer-inner-container {
+  width: 300px;
+  min-width: 250px;
+  max-width: 500px;
+}
+.red{
+  color: red;
 }

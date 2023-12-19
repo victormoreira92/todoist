@@ -1,0 +1,25 @@
+<div class="container">
+    <div mat-dialog-actions class="dialog-actions"> 
+        <button mat-button (click)="onCancel()" class="button-dialog">Cancel</button> 
+        <button mat-button [mat-dialog-close]="data.title"  
+                cdkFocusInitial class="button-dialog">Add</button> 
+    </div> 
+    <div mat-dialog-content class="flex">
+        <label class="dialog-label">Title </label>
+        <mat-form-field class="w-100" color="accent"> 
+            <input type="text" matInput placeholder="Add a Task...">
+        </mat-form-field>
+        <label class="dialog-label">Description</label>
+        <mat-form-field class="w-100" color="accent">
+            <textarea  matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="10"
+            cdkAutosizeMaxRows="15" placeholder="Add description task..."></textarea>
+        </mat-form-field> 
+
+
+    </div>
+
+    
+</div>

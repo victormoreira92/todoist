@@ -2,10 +2,24 @@ section{
   display: flex;
   justify-content: space-between;
 }
-.tasks-square{
-  width: 75%;
+mat-sidenav{
+  padding: 15px;
+  border-right: none;
 }
-app-sidebar{
-  width: 30%;
-  height: 100%;
+.right{
+  margin-left: 90%;
+  padding: 10px;
+}
+.btn-icon{
+  transform: scale(2);
+}
+
+.red{
+  color: red;
+}
+.btn-index{
+  padding: 15px;
+}
+.tasks-square{
+  min-height: 100vh;
 }
