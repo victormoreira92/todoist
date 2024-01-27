@@ -20,7 +20,7 @@ export class TaskIndexComponent {
     let dialogRef = this.dialog.open(TaskDialogComponent, { 
       width: '800px', 
       height: '600px',
-      data: { title: this.title, description: this.description } 
+      data: { title: 'tarefa 1', description: 'descricao 2' } 
     }); 
   
     dialogRef.afterClosed().subscribe(result => { 

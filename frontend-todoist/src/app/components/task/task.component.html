@@ -9,10 +9,10 @@
     </mat-card-content>
     <mat-card-actions class="flex sb">
       <div>
-        <button mat-button>Edit</button>
+        <button mat-button (click)="openDialog(task)">Edit</button>
         <button mat-button>Delete</button>
       </div>
-      <mat-checkbox>Done</mat-checkbox>
+      <mat-checkbox [checked]="task.done">Done</mat-checkbox>
     </mat-card-actions>
   </mat-card>
 </section>
