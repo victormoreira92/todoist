@@ -23,6 +23,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TaskService } from './services/task.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateTaskComponentComponent } from './components/update-task-component/update-task-component.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TaskDeleteDialogComponent } from './components/task-delete-dialog/task-delete-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { UpdateTaskComponentComponent } from './components/update-task-component
     TaskComponent,
     TaskDialogComponent,
     UpdateTaskComponentComponent,
+    TaskDeleteDialogComponent,
 
   ],
   imports: [
@@ -48,6 +51,7 @@ import { UpdateTaskComponentComponent } from './components/update-task-component
     MatFormFieldModule,
     FormsModule,
     MatDialogModule,
+    MatSnackBarModule,
     MatCheckboxModule,
     HttpClientModule,
     ReactiveFormsModule

@@ -43,6 +43,12 @@ export class TaskService {
       )
   }
 
+  delete(id: number): Observable<Task>{
+    return this.http.delete<Task>(this.url + '/' + id)
+      .pipe(
+        retry(2))
+  }
+
   // saveTask(car: Car): Observable<Task> {
   //   return this.http.post<Task>(this.url, JSON.stringify(task), this.httpOptions)
   //     .pipe(

@@ -1,0 +1,31 @@
+.warn{
+  background-color: white;
+  color: red;
+}
+
+.warn:hover{
+  background-color: red;
+  color: white;
+}
+
+.success{
+  background-color: white;
+  color: green;
+}
+
+.success:hover{
+  background-color: green;
+  color: white;
+}
+
+.title-dialog{
+  font-weight: bold;
+  text-align: center;
+}
+
+.dialog-actions{
+  display: flex;
+  justify-content: center;
+  column-gap: 50px;
+  padding-left: 25%;
+}

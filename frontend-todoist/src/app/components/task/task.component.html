@@ -10,7 +10,7 @@
     <mat-card-actions class="flex sb">
       <div>
         <button mat-button (click)="openDialog(task)">Edit</button>
-        <button mat-button>Delete</button>
+        <button mat-button (click)="openDeleteDialog(task.id)">Delete</button>
       </div>
       <mat-checkbox [checked]="task.done">Done</mat-checkbox>
     </mat-card-actions>
