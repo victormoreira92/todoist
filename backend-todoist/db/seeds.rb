@@ -12,6 +12,5 @@ Project.find_or_create_by(name: 'Personal')
 Project.find_or_create_by(name: 'Professional')
 
 30.times do
-  Task.find_or_create_by(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph(sentence_count: 2),
-                         project_id: Project.all.sample)
+  Task.find_or_create_by(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph(sentence_count: 2))
 end
