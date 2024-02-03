@@ -8,28 +8,31 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TaskService {
+
   
   url = 'http://localhost:3000/tasks'; // api rest fake
-
-
+  
+  
   constructor(private http: HttpClient) { }
-
+  
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
-
+  
   getTask(): Observable<Task[]> {
     return this.http.get<Task[]>(this.url)
-      .pipe(
-        retry(2))
-
-  }
+    .pipe(
+      retry(2))
+      
+    }
+    
 
   getTaskById(id: number): Observable<Task> {
     return this.http.get<Task>(this.url + '/' + id)
       .pipe(
         retry(2))
   }
+
   create_task(task: any): Observable<Task> {
     return this.http.post<Task>(
       this.url, JSON.stringify(task), this.httpOptions

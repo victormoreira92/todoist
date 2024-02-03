@@ -39,6 +39,10 @@ export class TaskComponent implements OnInit{
     });
   }
   
+  doneTask(task: Task){
+    task.done = !task.done
+    this.taskService.updateTask(task).subscribe()
+  }
   
 
   openSnackBar(message: string, action: string) {
