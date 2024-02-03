@@ -70,3 +70,5 @@ yarn-debug.log*
 
 #Idea 
 /.idea
+backend-todoist/.idea/
+backend-todoist/.idea

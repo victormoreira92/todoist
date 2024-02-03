@@ -3,11 +3,11 @@ class TasksController < ApplicationController
 
   # GET /tasks
   def index
-    @tasks = Task.all
+    @tasks = Task.all.newest_first
 
     render json: @tasks
   end
-
+  
   # GET /tasks/1
   def show
     render json: @task
@@ -15,8 +15,9 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    @task = Task.new(task_params)
 
+    @task = Task.new(task_params)
+    
     if @task.save
       render json: @task, status: :created, location: @task
     else
