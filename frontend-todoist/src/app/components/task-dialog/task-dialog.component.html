@@ -30,6 +30,17 @@
             cdkAutosizeMinRows="10"
             cdkAutosizeMaxRows="15" placeholder="Add description task...">{{data.description}}</textarea>
         </mat-form-field> 
+        <label class="dialog-label">Due Date</label>
+        <mat-form-field class="w-100" color="accent">
+            <label class="dialog-label">Due Date</label>
+            <input matInput [matDatepicker]="picker"
+            name="due_date"
+            formControlName="due_date"
+            >
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> 
 
     </div>
 </form>

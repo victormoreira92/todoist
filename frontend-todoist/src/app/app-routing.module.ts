@@ -14,6 +14,14 @@ const routes: Routes = [
     component: TaskIndexComponent
   },
   {
+    path: 'tasks/today',
+    component: TaskIndexComponent
+  },
+  {
+    path: 'tasks/upcoming',
+    component: TaskIndexComponent
+  },
+  {
     path: 'index',
     component: HomepageComponent
   }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+import { Task } from 'src/app/models/task';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class TaskIndexComponent {
 
   title!: string; 
   description!: string; 
+  tasks!: Task[];
   
   constructor(public dialog: MatDialog) {} 
   
@@ -27,5 +29,9 @@ export class TaskIndexComponent {
       this.description = result; 
     }); 
   } 
+
+  onTaskArrive($event: Task[]){
+    this.tasks = $event;
+  }
 
 }

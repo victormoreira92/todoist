@@ -29,13 +29,10 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.getTasks();
   }
-  getTasks() {
-    this.taskService.getTask().subscribe((tasks: Task[]) => {
-      this.tasks = tasks;
-    });
-  }
+
+
+
 
    
 

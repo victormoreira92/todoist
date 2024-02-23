@@ -21,10 +21,15 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { TaskDialogComponent } from './components/task-dialog/task-dialog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { TaskService } from './services/task.service';
+import { ProjectService } from './services/project.service.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateTaskComponentComponent } from './components/update-task-component/update-task-component.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TaskDeleteDialogComponent } from './components/task-delete-dialog/task-delete-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core'
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +48,9 @@ import { TaskDeleteDialogComponent } from './components/task-delete-dialog/task-
     AppRoutingModule,
     MatButtonModule,
     NoopAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    CommonModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
@@ -56,7 +64,13 @@ import { TaskDeleteDialogComponent } from './components/task-delete-dialog/task-
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [TaskService],
+  providers: [
+    TaskService,
+    ProjectService,
+    MatDatepickerModule,
+    MatNativeDateModule,  
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

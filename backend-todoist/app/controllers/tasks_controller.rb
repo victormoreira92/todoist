@@ -1,16 +1,31 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[ show update destroy ]
 
+
   # GET /tasks
   def index
     @tasks = Task.all.newest_first
 
     render json: @tasks
   end
-  
+
+
+
   # GET /tasks/1
   def show
     render json: @task
+  end
+
+  def today
+    @tasks = Task.today.newest_first
+
+    render json: @tasks
+  end
+
+  def upcoming
+    @tasks = Task.upcoming.newest_first
+
+    render json: @tasks
   end
 
   # POST /tasks
@@ -47,6 +62,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :done)
+      params.require(:task).permit(:title, :description, :done, :due_date)
     end
 end

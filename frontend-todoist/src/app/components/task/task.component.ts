@@ -1,5 +1,5 @@
 import { Task } from './../../models/task';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { AppComponent } from 'src/app/app.component';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TaskDeleteDialogComponent } from '../task-delete-dialog/task-delete-dialog.component';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task',
@@ -15,9 +15,10 @@ import { TaskDeleteDialogComponent } from '../task-delete-dialog/task-delete-dia
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit{
+  @Input() tasks!: Task[];
 
   task = {} as Task;
-  tasks!: Task[];
+  params = '';
 
   visible:boolean = false
   
@@ -28,16 +29,16 @@ export class TaskComponent implements OnInit{
     ) {} 
 
 
-
   ngOnInit() {
-    this.getTasks();
+    this.getTasks()
   }
   
   getTasks() {
     this.taskService.getTask().subscribe((tasks: Task[]) => {
-      this.tasks = tasks;
+        this.tasks = tasks;
     });
   }
+
   
   doneTask(task: Task){
     task.done = !task.done
@@ -47,6 +48,15 @@ export class TaskComponent implements OnInit{
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
+  }
+
+  getDueDate(params: string, tasks: Task []){
+    if(params == "today"){
+      tasks = tasks.filter(t => new Date(t.due_date).toLocaleDateString() == new Date().toLocaleDateString());
+    }else{
+      tasks = tasks.filter(t => new Date(t.due_date).getMilliseconds() >= new Date().getMilliseconds());
+    }
+    return tasks;
   }
 
   openDialog(task: Task): void { 
