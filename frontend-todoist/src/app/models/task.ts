@@ -3,5 +3,6 @@ export interface Task {
   title: string,
   description: string, 
   done: boolean,
+  due_date: Date,
   project_id: number
 }

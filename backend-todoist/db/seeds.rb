@@ -12,5 +12,6 @@ Project.find_or_create_by(name: 'Personal')
 Project.find_or_create_by(name: 'Professional')
 
 30.times do
-  Task.find_or_create_by(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph(sentence_count: 2))
+  Task.find_or_create_by(title: Faker::Lorem.sentence, description: Faker::Lorem.paragraph(sentence_count: 2),
+                         due_date: Faker::Time.between_dates(from: Date.today - 1, to: Date.today.advance(days: 7), period: :morning))
 end

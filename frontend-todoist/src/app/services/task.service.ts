@@ -25,6 +25,12 @@ export class TaskService {
       retry(2))
       
     }
+  
+    getTaskByPeriod(period: string): Observable<Task[]> {
+      return this.http.get<Task[]>(this.url + '/' + period)
+      .pipe(
+        retry(2))
+      }
     
 
   getTaskById(id: number): Observable<Task> {
@@ -51,6 +57,8 @@ export class TaskService {
       .pipe(
         retry(2))
   }
+
+  
 
   // saveTask(car: Car): Observable<Task> {
   //   return this.http.post<Task>(this.url, JSON.stringify(task), this.httpOptions)

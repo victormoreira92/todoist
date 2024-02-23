@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Task } from 'src/app/models/task';
 import { TaskService } from 'src/app/services/task.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @Component({
@@ -13,12 +14,17 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./task-dialog.component.scss']
 })
 export class TaskDialogComponent implements OnInit{
+
+  
   
     taskForm = new FormGroup({
       id: new FormControl(),
       title: new FormControl('',[Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       description: new FormControl('',[Validators.required, Validators.minLength(5)]),
-      boolean: new FormControl()
+      boolean: new FormControl(),
+      due_date: new FormControl(new Date(), [Validators.required]),
+      project_id: new FormControl()
+
     })
 
     constructor( 
@@ -26,6 +32,7 @@ export class TaskDialogComponent implements OnInit{
         @Inject(MAT_DIALOG_DATA) public data: Task, 
         private service: TaskService,
         private router: Router,
+        private datePicker: MatDatepickerModule,
         private formBuilder: FormBuilder) {}
 
       onCancel(): void { 

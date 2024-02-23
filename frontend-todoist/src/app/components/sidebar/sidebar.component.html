@@ -10,12 +10,18 @@
     </div>
   </mat-list-item>
   <mat-list-item>
+    <div class="flex" (click)="router.navigateByUrl('/tasks')">
+      <mat-icon class="pl-1">inbox</mat-icon>
+      <span>Inbox</span>
+    </div>
+  </mat-list-item>
+  <mat-list-item (click)="getTaskByPeriod('today')">
     <div class="flex">
       <mat-icon class="pl-1">wb_sunny</mat-icon>
       <span>Today</span>
     </div>
   </mat-list-item>
-  <mat-list-item>
+  <mat-list-item (click)="getTaskByPeriod('upcoming')">
     <div class="flex">
       <mat-icon class="pl-1">calendar_today</mat-icon>
       <span>Upcomming</span>
@@ -25,7 +31,7 @@
 
  <mat-nav-list>
  <h3 mat-subheader>My Projects</h3>
-  <mat-list-item *ngFor="let project of projects">
+  <mat-list-item *ngFor="let project of projects" (click)="getTaskByProject(project.id)">
     <mat-icon mat-list-icon>tag</mat-icon>
     <h4 mat-line>{{project.name}}</h4>
   </mat-list-item>
