@@ -6,6 +6,7 @@ import { TaskService } from 'src/app/services/task.service';
 import { Task } from 'src/app/models/task';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project.service.service';
+import { ProjectDialogComponent } from '../project-dialog/project-dialog.component';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -35,6 +36,7 @@ export class SidebarComponent implements OnInit{
     ngOnInit(){
       this.getProject()
     }
+    
     getProject() {
       this.projectService.getProject().subscribe((projects)=>{
         this.projects = projects
@@ -54,6 +56,14 @@ export class SidebarComponent implements OnInit{
     dialogRef.afterClosed().subscribe(
     ); 
   } 
+
+  openDialogProject(): void {
+    let dialogRef = this.dialog.open(ProjectDialogComponent, { 
+      width: '450px', 
+      height: '350px',
+      data: { title: this.title, description: this.description } 
+    }); 
+  }
 
   getTaskByPeriod(period: string){
     this.service.getTaskByPeriod(period).subscribe((tasks)=>{

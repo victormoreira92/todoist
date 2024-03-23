@@ -1,0 +1,32 @@
+<div class="container p-1">
+  <h2 mat-card-title class="">Add Project</h2>
+  <form [formGroup]="projectForm" >
+    <div>
+      <label class="dialog-label">Title</label>
+      <mat-form-field class="w-100" color="accent"> 
+        <input type="text"  
+        name="name" 
+        formControlName="name"
+        required
+        matInput
+        >
+        <mat-error *ngIf="">Project Name is required</mat-error>
+      </mat-form-field>
+      
+      <label class="dialog-label">Color</label> 
+      <mat-form-field class="w-100" color="accent">
+        <mat-select formControlName="color">
+          <mat-option *ngFor="let color of colors_user" [value]="color.hex">
+           <span class="color-option" [ngStyle]="{'background-color': color.hex}"></span> {{ color.color_name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions class="flex"> 
+      <button mat-button (click)="onCancel()" class="button-dialog bg-danger">Cancel</button> 
+      <button mat-button cdkFocusInitial class="button-dialog bg-success" (click)="createProject()">Create Project</button>
+    </div>
+  
+  </form>
+  </div>

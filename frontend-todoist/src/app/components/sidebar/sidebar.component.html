@@ -30,10 +30,18 @@
  </mat-nav-list>
 
  <mat-nav-list>
- <h3 mat-subheader>My Projects</h3>
-  <mat-list-item *ngFor="let project of projects" (click)="getTaskByProject(project.id)">
-    <mat-icon mat-list-icon>tag</mat-icon>
-    <h4 mat-line>{{project.name}}</h4>
+  <div class="flex sb">
+    <h3 mat-subheader>My Projects</h3>
+    <button mat-button color="primary" (click)="openDialogProject()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <mat-list-item *ngFor="let project of projects" (click)="getTaskByProject(project.id)" class="flex sb">
+    <span>
+      <mat-icon mat-list-icon [ngStyle]="{'color': project.color}">tag</mat-icon>
+      <h4 mat-line>Home</h4>
+    </span>
+    <mat-icon mat-list-icon>more_horiz</mat-icon>
   </mat-list-item>
 </mat-nav-list>
   

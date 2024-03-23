@@ -30,6 +30,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core'
 import { CommonModule } from '@angular/common';
+import {MatSelectModule} from '@angular/material/select';
+import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
+import { ProjectDialogComponent } from './components/project-dialog/project-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,7 @@ import { CommonModule } from '@angular/common';
     TaskDialogComponent,
     UpdateTaskComponentComponent,
     TaskDeleteDialogComponent,
+    ProjectDialogComponent,
 
   ],
   imports: [
@@ -52,6 +56,7 @@ import { CommonModule } from '@angular/common';
     MatNativeDateModule,
     CommonModule,
     MatSidenavModule,
+    MatSelectModule,
     MatListModule,
     MatIconModule,
     MatCardModule,
@@ -62,6 +67,7 @@ import { CommonModule } from '@angular/common';
     MatSnackBarModule,
     MatCheckboxModule,
     HttpClientModule,
+    NgxMatColorPickerModule,
     ReactiveFormsModule
   ],
   providers: [
@@ -69,7 +75,9 @@ import { CommonModule } from '@angular/common';
     ProjectService,
     MatDatepickerModule,
     MatNativeDateModule,  
-    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
+    { provide: MAT_COLOR_FORMATS, useValue: NGX_MAT_COLOR_FORMATS }
+
   ],
   bootstrap: [AppComponent],
 })
