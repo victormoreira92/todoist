@@ -32,9 +32,10 @@ export class TaskDeleteDialogComponent {
 
   onYesClick(): void {
     this.service.delete(this.data.id).subscribe(()=>{
+      let nameTask = this.data.title
       this.dialogDelete.close()
       setTimeout(()=>{window.location.reload()}, 2000) 
-      this.openSnackBar("Task deleted successfully", "Close")
+      this.openSnackBar("Task "+nameTask+" deleted successfully", "Close")
     })
   }
 

@@ -11,6 +11,19 @@ export class TaskService {
 
   
   url = 'http://localhost:3000/tasks'; // api rest fake
+
+  private handleError(handleError: HttpErrorResponse) {
+    if (handleError.status === 0) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', handleError.error);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${handleError.status}, body was: `, handleError.error);
+    }
+    return throwError(() => new Error('Something bad happened; please try again later.'));
+  }
   
   
   constructor(private http: HttpClient) { }
@@ -22,9 +35,10 @@ export class TaskService {
   getTask(): Observable<Task[]> {
     return this.http.get<Task[]>(this.url)
     .pipe(
-      retry(2))
-      
+      retry(2),
+      catchError(this.handleError))
     }
+  
   
     getTaskByPeriod(period: string): Observable<Task[]> {
       return this.http.get<Task[]>(this.url + '/' + period)
@@ -42,6 +56,8 @@ export class TaskService {
   create_task(task: any): Observable<Task> {
     return this.http.post<Task>(
       this.url, JSON.stringify(task), this.httpOptions
+      ).pipe(
+        catchError(this.handleError)
       )
   }
 
