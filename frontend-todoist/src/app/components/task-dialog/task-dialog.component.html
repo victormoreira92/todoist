@@ -1,14 +1,7 @@
 <div class="container">
+    <h2 mat-card-title *ngIf="!taskForm.value.id">Add Task</h2>
+    <h2 mat-card-title *ngIf="taskForm.value.id">Edit Task</h2>
     <form [formGroup]="taskForm" >
-    <div mat-dialog-actions class="dialog-actions"> 
-        <button mat-button (click)="onCancel()" class="button-dialog">Cancel</button> 
-        <button mat-button [hidden]="taskForm.value.id"
-        cdkFocusInitial class="button-dialog" (click)="create()">Add</button>
-        <button mat-button  [hidden]="!taskForm.value.id"
-        cdkFocusInitial class="button-dialog" (click)="update()">Edit</button>
-
-        
-    </div> 
     <div mat-dialog-content class="flex">
         <label class="dialog-label">Title</label>
         <mat-form-field class="w-100" color="accent"> 
@@ -18,7 +11,7 @@
             required
             matInput placeholder="Add a Task..." 
             >
-        <mat-error *ngIf="">Title is required</mat-error>
+        <mat-error>{{checkForErrorsIn(taskForm.)}}</mat-error>
         </mat-form-field>
         <label class="dialog-label">Description</label>
         <mat-form-field class="w-100" color="accent">
@@ -27,7 +20,7 @@
             formControlName="description"
             cdkTextareaAutosize
             #autosize="cdkTextareaAutosize"
-            cdkAutosizeMinRows="10"
+            cdkAutosizeMinRows="2"
             cdkAutosizeMaxRows="15" placeholder="Add description task...">{{data.description}}</textarea>
         </mat-form-field> 
         <label class="dialog-label">Due Date</label>
@@ -43,6 +36,15 @@
         </mat-form-field> 
 
     </div>
+    <div mat-dialog-actions class="dialog-actions"> 
+        <button  (click)="onCancel()" class="btn bg-grey">Cancel</button> 
+        <button  *ngIf="!taskForm.value.id"
+        cdkFocusInitial class="btn bg-success" (click)="create()">Add</button>
+        <button *ngIf="taskForm.value.id"
+        cdkFocusInitial class="btn bg-primary" (click)="update()">Edit</button>
+
+        
+    </div> 
 </form>
 
     

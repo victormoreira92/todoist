@@ -15,7 +15,7 @@
       
       <label class="dialog-label">Color</label> 
       <mat-form-field class="w-100" color="accent">
-        <mat-select formControlName="color">
+        <mat-select formControlName="color_user">
           <mat-option *ngFor="let color of colors_user" [value]="color.hex">
            <span class="color-option" [ngStyle]="{'background-color': color.hex}"></span> {{ color.color_name }}
           </mat-option>
@@ -24,9 +24,9 @@
     </div>
 
     <div mat-dialog-actions class="flex"> 
-      <button mat-button (click)="onCancel()" class="button-dialog bg-danger">Cancel</button> 
-      <button mat-button cdkFocusInitial class="button-dialog bg-success" (click)="createProject()">Create Project</button>
+      <button  (click)="onCancel()" class="btn bg-grey" >Cancel</button> 
+      <button  *ngIf="!projectForm.value.id" (click)="createProject()" class="btn bg-success">Add</button>
+      <button  *ngIf="projectForm.value.id" (click)="updateProject()"  class="btn bg-primary">Edit</button>
     </div>
-  
   </form>
   </div>

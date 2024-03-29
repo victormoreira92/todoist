@@ -33,6 +33,9 @@ import { CommonModule } from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
 import { ProjectDialogComponent } from './components/project-dialog/project-dialog.component';
+import { MenuComponentComponent } from './components/sidebar/menu-component/menu-component.component';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +48,7 @@ import { ProjectDialogComponent } from './components/project-dialog/project-dial
     UpdateTaskComponentComponent,
     TaskDeleteDialogComponent,
     ProjectDialogComponent,
+    MenuComponentComponent,
 
   ],
   imports: [
@@ -58,6 +62,7 @@ import { ProjectDialogComponent } from './components/project-dialog/project-dial
     MatSidenavModule,
     MatSelectModule,
     MatListModule,
+    MatMenuModule,
     MatIconModule,
     MatCardModule,
     MatInputModule,

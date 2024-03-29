@@ -16,25 +16,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-.bg-danger:hover{
-  background-color: red;
-}
-
-.bg-success:hover{
-  background-color: green;
-}
-
-
-
-.bg-danger{
-  background-color: rgba(255, 0, 0, 0.428);
-  color: white;
-  font-weight: bold;
-}
-
-.bg-success{
-  background-color: rgba(0, 128, 0, 0.538);
-  color: white;
-  font-weight: bold;
-}
