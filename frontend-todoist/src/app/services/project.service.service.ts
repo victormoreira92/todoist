@@ -39,14 +39,20 @@ export class ProjectService {
   create_project(project: any): Observable<Project> {
     return this.http.post<Project>(
       this.url, JSON.stringify(project), this.httpOptions
+      ).pipe(
+        catchError(this.handleError)
       )
   }
 
   updateProject(project: any): Observable<Project> {
     return this.http.put<Project>(this.url + '/' + project.id, JSON.stringify(project), this.httpOptions)
       .pipe(
-        retry(1)
+        retry(1),
       )
+      
+  }
+  handleError(handleError: HttpErrorResponse){
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
   delete(id: number): Observable<Project>{

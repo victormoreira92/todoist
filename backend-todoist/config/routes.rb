@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'today'
       get 'upcoming'
+      get 'getByProject'
     end
   end
 

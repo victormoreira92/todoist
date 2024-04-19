@@ -11,8 +11,10 @@
             required
             matInput placeholder="Add a Task..." 
             >
-        <mat-error>{{checkForErrorsIn(taskForm.)}}</mat-error>
-        </mat-form-field>
+        <mat-error *ngIf="this.taskForm.controls['title'].hasError('required')">Task title is required</mat-error>
+        <mat-error *ngIf="this.taskForm.controls['title'].hasError('minlength')">Task title must have more than 3 characters</mat-error>
+        <mat-error *ngIf="this.taskForm.controls['title'].hasError('maxlength')">Task title must have less than 30 characters</mat-error>
+    </mat-form-field>
         <label class="dialog-label">Description</label>
         <mat-form-field class="w-100" color="accent">
             <textarea  matInput
@@ -22,8 +24,15 @@
             #autosize="cdkTextareaAutosize"
             cdkAutosizeMinRows="2"
             cdkAutosizeMaxRows="15" placeholder="Add description task...">{{data.description}}</textarea>
+            <mat-error *ngIf="this.taskForm.controls['title'].hasError('required')">Task title is required</mat-error>
+            <mat-error *ngIf="this.taskForm.controls['title'].hasError('minlength')">Task title must have more than 5 characters</mat-error>
         </mat-form-field> 
-        <label class="dialog-label">Due Date</label>
+        <label class="dialog-label">Project</label> 
+        <mat-form-field class="w-100">
+          <mat-select formControlName="project_id" name="project_id">
+            <mat-option *ngFor="let project of projects" [value]="project.id">{{project.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <mat-form-field class="w-100" color="accent">
             <label class="dialog-label">Due Date</label>
             <input matInput [matDatepicker]="picker"
@@ -34,6 +43,7 @@
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field> 
+        
 
     </div>
     <div mat-dialog-actions class="dialog-actions"> 

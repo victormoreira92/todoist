@@ -16,6 +16,12 @@ class TasksController < ApplicationController
     render json: @task
   end
 
+  def getByProject
+    @task = Task.get_by_project(params[:project_id]).due_date_first
+    
+    render json: @task
+  end
+
   def today
     @tasks = Task.today.newest_first
 
@@ -36,7 +42,7 @@ class TasksController < ApplicationController
     if @task.save
       render json: @task, status: :created, location: @task
     else
-      render json: @task.errors, status: :unprocessable_entity
+      render json: @task.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -62,6 +68,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :done, :due_date)
+      params.require(:task).permit(:title, :description, :done, :due_date, :project_id)
     end
 end

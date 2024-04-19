@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
-  validates :name, presence: true
-  has_many :tasks
+  validates :name, presence: true, length: { in: 3..25 }
+  has_many :tasks, dependent: :delete_all
 
   def set_color
     self.color_user = "#ffffff" if self.color.nil?

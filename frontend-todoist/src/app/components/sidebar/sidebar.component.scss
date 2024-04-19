@@ -32,3 +32,15 @@ p{
 .btn-menu:hover{
   background-color: rgb(235, 235, 235);
 }
+.menu-option{
+  right: 2px;
+  visibility: hidden;
+}
+mat-list-item{
+  padding-top: 10px;
+  padding-left: 0px;
+}
+
+mat-list-item:hover .menu-option{
+  visibility: visible;
+}

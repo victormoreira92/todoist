@@ -18,14 +18,16 @@ export class ProjectDialogComponent implements OnInit{
   }
   @Input() projects!: Project[];
   
+  
+  
+  project = {} as Project;
+  
   projectForm = new FormGroup({
     id: new FormControl(),
-    name: new FormControl('',[Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
+    name: new FormControl('',[Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
     color_user: new FormControl('', [Validators.required]),
     
   })
-  
-  project = {} as Project;
   
   public disabled = false;
   public touchUi = false;
@@ -46,7 +48,8 @@ export class ProjectDialogComponent implements OnInit{
         this.router.navigateByUrl("/tasks")
         .then(() => {
           window.location.reload();
-        });
+        })
+        .catch();
       })
     }
 
@@ -65,6 +68,8 @@ export class ProjectDialogComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    
+
     this.projectForm.patchValue(this.data)
   }
   

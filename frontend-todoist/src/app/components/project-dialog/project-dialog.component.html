@@ -1,18 +1,22 @@
 <div class="container p-1">
   <h2 mat-card-title class="">Add Project</h2>
-  <form [formGroup]="projectForm" >
+  <form [formGroup]='projectForm'>
     <div>
       <label class="dialog-label">Title</label>
       <mat-form-field class="w-100" color="accent"> 
         <input type="text"  
+        id="name"
         name="name" 
+        minlength="3"
+        maxlength="30"
         formControlName="name"
         required
         matInput
         >
-        <mat-error *ngIf="">Project Name is required</mat-error>
+        <mat-error *ngIf="this.projectForm.controls['name'].hasError('required')">Project Name is required</mat-error>
+        <mat-error *ngIf="this.projectForm.controls['name'].hasError('minlength')">Project Name contains the wrong amount of characters</mat-error>
+        <br />
       </mat-form-field>
-      
       <label class="dialog-label">Color</label> 
       <mat-form-field class="w-100" color="accent">
         <mat-select formControlName="color_user">
@@ -20,6 +24,7 @@
            <span class="color-option" [ngStyle]="{'background-color': color.hex}"></span> {{ color.color_name }}
           </mat-option>
         </mat-select>
+        <mat-error *ngIf="this.projectForm.controls['color_user'].hasError('required')">Project Color is required</mat-error>
       </mat-form-field>
     </div>
 

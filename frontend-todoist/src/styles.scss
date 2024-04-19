@@ -111,6 +111,9 @@ p{
   justify-content: right;
   column-gap: 7px;
 }
+.pb-1{
+  padding-bottom: 1em;
+}
 .text-bold{
   font-weight: bold;
 }
@@ -134,8 +137,15 @@ p{
 .m-0{
   margin: 0;
 }
+.px-2{
+  padding-left: 2em;
+  padding-right: 2em;
+}
 .pl-1{
   padding-right: 2px;
+}
+.pl-1{
+  padding-left: 1em;
 }
 .my-2{
   padding: 2em 0;

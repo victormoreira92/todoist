@@ -55,7 +55,9 @@ export class SidebarComponent implements OnInit{
     }
     
     getTaskByProject(id: number) {
-      
+      this.service.getTaskByProject(id).subscribe((tasks)=>{
+        this.taskEmitter.emit(tasks)
+      })
     }
     openMenu() {
       const dialogRef = this.dialog.open(MenuComponentComponent, {restoreFocus: false});
@@ -66,7 +68,7 @@ export class SidebarComponent implements OnInit{
   openDialog(): void { 
     let dialogRef = this.dialog.open(TaskDialogComponent, { 
       width: '800px', 
-      height: '600px',
+      height: '650px',
       data: { title: this.title, description: this.description } 
     }); 
   
@@ -99,10 +101,14 @@ export class SidebarComponent implements OnInit{
   }
 
   getTaskByPeriod(period: string){
-    this.service.getTaskByPeriod(period).subscribe((tasks)=>{
+    ['today', 'upcoming'].includes(period) ? this.service.getTaskByPeriod(period).subscribe((tasks)=>{
       this.taskEmitter.emit(tasks)
-      this.router.navigateByUrl("/tasks/"+period)
+    }) : this.service.getTask().subscribe((tasks)=>{
+      this.taskEmitter.emit(tasks)
     })
     };
   }
+
    
+  
+

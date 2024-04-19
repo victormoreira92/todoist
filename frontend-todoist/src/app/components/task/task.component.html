@@ -4,12 +4,15 @@
     <mat-card-header class="flex sb">
       <mat-card-title [ngClass]="task.done ? 'overline' : 'done'">{{task.title}}</mat-card-title>
     </mat-card-header>
-    <mat-card-content [ngClass]="task.done ? 'overline' : 'done'">
-      {{task.description}}
+    <mat-card-content [ngClass]="task.done ? 'overline' : 'done'" >
+      <div [ngClass]="task.description.length > 100 ? 'hidden-overflow' : ''">{{task.description}}</div>
       <div class="flex pt-1">
         <mat-icon class="mat-icon orange">calendar_today</mat-icon> {{task.due_date | date : 'dd/MM/yyyy'}}
       </div>
     </mat-card-content>
+      <div class="flex pl-1">
+        <mat-icon [ngStyle]="{'color': getProjectData(task.project_id)?.color_user}">tag</mat-icon>{{getProjectData(task.project_id)?.name}}
+      </div>
     <mat-card-actions class="flex sb">
       <div>
         <button mat-button (click)="openDialog(task)">Edit</button>

@@ -10,7 +10,7 @@
     </div>
   </mat-list-item>
   <mat-list-item>
-    <div class="flex" (click)="router.navigateByUrl('/tasks')">
+    <div class="flex" (click)="getTaskByPeriod('all')">
       <mat-icon class="pl-1">inbox</mat-icon>
       <span>Inbox</span>
     </div>
@@ -28,32 +28,33 @@
     </div>
   </mat-list-item>  
  </mat-nav-list>
-
+ <mat-divider></mat-divider>
  <mat-nav-list>
-  <div class="flex sb">
+  <div class="flex sb pt-1">
     <h3 mat-subheader>My Projects</h3>
-    <button mat-button color="primary" (click)="openDialogProject()">
+    <button mat-icon-button (click)="openDialogProject()">
       <mat-icon>add</mat-icon>
     </button>
   </div>
-  <div *ngFor="let project of projects">
-    <div class="flex sb" (click)="getTaskByProject(project.id)">
-      <div class="flex" >
-        <mat-icon mat-list-icon [ngStyle]="{'color': project.color_user}">tag</mat-icon>
-        <h4>{{project.name}}</h4>
-      </div>
-      <div>
-        <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger class="pb-1">
-          <mat-icon>more_horiz</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <a class="btn-menu text-primary"(click)="openProject(project)"><mat-icon>edit</mat-icon>Edit</a>
-          <a class="btn-menu text-danger" (click)="openDeleteProjectComponent(project.id)"><mat-icon>delete</mat-icon>Delete</a>
-        </mat-menu>
-      </div>
-      
-    </div>
-  </div>
+  <mat-action-list>
+    <mat-list-item *ngFor="let project of projects">
+        <div (click)="getTaskByProject(project.id)" class="flex sb">
+         <span>
+           <mat-icon mat-list-icon [ngStyle]="{'color': project.color_user}">tag</mat-icon>
+           <h4>{{project.name}}</h4>
+         </span>
+          <div class="menu-option">
+            <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger class="pb-1">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <a class="btn-menu text-primary"(click)="openProject(project)"><mat-icon>edit</mat-icon>Edit</a>
+              <a class="btn-menu text-danger" (click)="openDeleteProjectComponent(project.id)"><mat-icon>delete</mat-icon>Delete</a>
+            </mat-menu>
+          </div>
+        </div>    
+    </mat-list-item>
+  </mat-action-list>
 </mat-nav-list>
   
   <!-- <ul>

@@ -11,8 +11,10 @@ export class TaskService {
 
   
   url = 'http://localhost:3000/tasks'; // api rest fake
+  urlTaskByProject = 'http://localhost:3000/tasks/getByProject';
 
   private handleError(handleError: HttpErrorResponse) {
+    console.log(handleError.message)
     if (handleError.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', handleError.error);
@@ -40,12 +42,21 @@ export class TaskService {
     }
   
   
-    getTaskByPeriod(period: string): Observable<Task[]> {
-      return this.http.get<Task[]>(this.url + '/' + period)
-      .pipe(
-        retry(2))
-      }
-    
+  getTaskByPeriod(period: string): Observable<Task[]> {
+    return this.http.get<Task[]>(this.url + '/' + period)
+    .pipe(
+      retry(2))
+    }
+  getTaskByProject(project_id: any): Observable<Task[]>{
+    const options = project_id ? 
+    { params: new HttpParams().set('project_id', project_id) } : {};
+    return this.http.get<Task[]>(this.urlTaskByProject,options)
+    .pipe(
+      retry(2)
+    )
+  }
+  
+  
 
   getTaskById(id: number): Observable<Task> {
     return this.http.get<Task>(this.url + '/' + id)

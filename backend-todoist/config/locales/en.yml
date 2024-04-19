@@ -30,4 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors:
+    format: "%{message}"
+    header: 'The form entry has errors; please correct the errors below and re-submit.'
+    messages:
+      wrong_length: "The provided %{attribute} contains the wrong amount of characters"
+      length: "The %{attribute} has not accepted; please accept the %{attribute}."
+      blank: "The provided %{attribute} is blank; please enter a non-blank %{attribute}."

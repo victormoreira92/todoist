@@ -1,7 +1,14 @@
 <mat-sidenav-container>
   <mat-sidenav  #sidenav mode="side" fixedInViewport opened class="sidenav"><app-sidebar (taskEmitter)="onTaskArrive($event)"></app-sidebar></mat-sidenav>
   <mat-sidenav-container>
-    <div class="right"><button (click)="openDialog()" mat-button><mat-icon class="btn-icon red">add</mat-icon></button></div>
+    <div class="flex sb px-2 pt-2">
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon class="btn-icon">dehaze</mat-icon>
+      </button>
+      <button (click)="openDialog()" mat-icon-button >
+        <mat-icon class="btn-icon red">add</mat-icon>
+      </button>
+    </div>
     <div class="tasks-square">
       <app-task [tasks]="tasks"></app-task>  
     </div>  
