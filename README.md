@@ -31,6 +31,9 @@ has_many: tasks
 
 # Instalation 
 `git clone todoist.git`
+
 `cd todoist`
+
 `cd backend-todoist`
+
 `rails db:create db:migrate db:seed`
