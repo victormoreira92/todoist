@@ -35,6 +35,7 @@ import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } fro
 import { ProjectDialogComponent } from './components/project-dialog/project-dialog.component';
 import { MenuComponentComponent } from './components/sidebar/menu-component/menu-component.component';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
     TaskDeleteDialogComponent,
     ProjectDialogComponent,
     MenuComponentComponent,
+    LoginComponent,
 
   ],
   imports: [
