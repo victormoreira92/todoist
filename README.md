@@ -1,171 +1,39 @@
-📆 Task App
-A full-stack platform for creating, organizing, and managing tasks efficiently, with tasks associated with specific projects. Built with Ruby on Rails for the backend, PostgreSQL for the database, Angular with TypeScript for the frontend, and styled with SaaS. The backend is tested with RSpec.
-    
-🌟 Features
+# 📆 Task App	
 
-Create and manage tasks with titles, descriptions, due dates, and completion status.
-Organize tasks under specific projects with customizable names and colors.
-Responsive frontend built with Angular and TypeScript.
-RESTful API powered by Rails.
-Database management with PostgreSQL.
-Tested with RSpec for reliable backend functionality.
-Styled with SaaS for a modern, clean UI.
+A fullstack platform that allows users to create, organize, and manage their tasks efficiently, associating them with specific projects. 
+See how website works in this link
 
-📋 Models
-Task
+# Builds
+<img src="https://pbs.twimg.com/profile_images/691206086955790336/CDMbA57p_400x400.png" alt="Rails logo" width="70" height="70"> <img src="https://w7.pngwing.com/pngs/657/27/png-transparent-postgresql-original-wordmark-logo-icon-thumbnail.png" alt="[Rails logo" width="70" height="70">  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT__DpLyuRUlYIwSXn8MGy4bIU-RdXhtYCkSeSKtkrmxQ&s" alt="[Rails logo" width="70" height="70">  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png" alt="[Rails logo" width="70" height="70">  <img src="https://gitlab.spritecloud.com/uploads/-/system/project/avatar/461/rspec.png" alt="[Rails logo" width="70" height="70">
 
-Belongs to: Project
-Attributes:
-title (string): Task title.
-description (string): Task details.
-done (boolean): Completion status.
-due_date (datetime): Task deadline.
-project_id (object): Reference to associated project.
+`Rails | PostgreSQL | Angular | Typescript | Saas | Rspec`
 
+# Model 
 
+### Task                                            
+belongs_to: project
 
-Project
+| Attribute   | Type |
+| ----------- | ----------- |
+| Title      | string       |
+| Description   | string        |
+| done | boolean |
+| due_date| datetime| 
+| project_id | object|
 
-Has many: Tasks
-Attributes:
-name (string): Project name.
-color (string): Project color for UI display.
+### Project
+has_many: tasks
 
+| Attribute   | Type |
+| ----------- | ----------- |
+| name      | Type       |
+| color   | string        |
 
+# Instalation 
+`git clone todoist.git`
 
-🛠️ Prerequisites
-Before setting up the project, ensure you have:
+`cd todoist`
 
-Git: For cloning the repository.
-Ruby (3.0+): Install via rbenv or RVM.
-Rails (7.0+): Install with gem install rails.
-PostgreSQL (12+): Ensure the server is running.
-Node.js (16+): Required for Angular.
-Angular CLI: Install with npm install -g @angular/cli.
-Yarn (optional): Install with npm install -g yarn.
+`cd backend-todoist`
 
-Verify installations:
-git --version
-ruby --version
-rails --version
-psql --version
-node --version
-ng --version
-yarn --version
-
-🚀 Installation
-1. Clone the Repository
-git clone https://github.com/username/todoist.git
-cd todoist
-
-
-Replace https://github.com/username/todoist.git with the actual repository URL.
-
-2. Set Up the Backend
-Navigate to the backend directory:
-cd backend-todoist
-
-Install Dependencies
-bundle install
-
-Configure PostgreSQL
-Ensure PostgreSQL is running. Create a database user if needed:
-psql -U postgres
-CREATE ROLE todoist_user WITH LOGIN PASSWORD 'your_password';
-ALTER ROLE todoist_user CREATEDB;
-\q
-
-Update config/database.yml with your credentials:
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: todoist_user
-  password: your_password
-  host: localhost
-
-development:
-  <<: *default
-  database: todoist_development
-
-Set Up the Database
-rails db:create
-rails db:migrate
-rails db:seed
-
-Start the Rails Server
-rails server
-
-The backend API will be available at http://localhost:3000.
-3. Set Up the Frontend
-Navigate to the frontend directory:
-cd ../frontend-todoist
-
-Install Dependencies
-npm install
-
-
-Or use yarn install if preferred.
-
-Configure API URL
-Verify the API URL in src/environments/environment.ts:
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:3000/api'
-};
-
-Start the Angular Server
-ng serve
-
-The frontend will be available at http://localhost:4200.
-4. Run Tests
-For backend tests with RSpec:
-cd backend-todoist
-rspec
-
-For frontend tests with Angular:
-cd frontend-todoist
-ng test
-
-📂 Project Structure
-
-Backend (backend-todoist):
-app/models/task.rb: Task model definition.
-app/models/project.rb: Project model definition.
-config/database.yml: Database configuration.
-db/seeds.rb: Sample data for projects and tasks.
-
-
-Frontend (frontend-todoist):
-src/app: Angular components, services, and modules.
-src/environments: API configuration.
-
-
-
-🧪 API Endpoints
-
-GET /projects: List all projects.
-POST /projects: Create a new project.
-GET /tasks: List all tasks.
-POST /tasks: Create a new task.
-(Add more endpoints as implemented.)
-
-🎨 Usage
-
-Access the app at http://localhost:4200.
-Create projects with unique names and colors.
-Add tasks, assign them to projects, and set due dates.
-Mark tasks as done or update their details.
-
-🤝 Contributing
-
-Fork the repository.
-Create a feature branch (git checkout -b feature-name).
-Commit changes (git commit -m 'Add feature').
-Push to the branch (git push origin feature-name).
-Open a Pull Request.
-
-📜 License
-This project is licensed under the MIT License. See the LICENSE file for details.
-📬 Contact
-For questions or feedback, open an issue or contact your-email@example.com.
+`rails db:create db:migrate db:seed` melhore a descrição com instalação no rails e angular local para video
